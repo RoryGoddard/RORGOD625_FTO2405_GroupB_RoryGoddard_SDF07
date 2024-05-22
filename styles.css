@@ -2,6 +2,10 @@
 
 :root {
     font-size: 10px;
+    --ig-dark-background: rgb(0, 0, 0);
+    --ig-dark-text: whitesmoke;
+    --ig-light-background: whitesmoke;
+    --ig-light-text: rgb(0, 0, 0);
 }
 
 *,
@@ -11,13 +15,74 @@
 }
 
 body {
+    background-color: var(--ig-light-background);
     font-family: "Open Sans", Arial, sans-serif;
     min-height: 100vh;
-    background-color: #fafafa;
-    color: #262626;
+    background-color: var(--ig-light-background);
+    color: var(--ig-light-text);
     padding-bottom: 3rem;
+}
+
+#btn-darkMode {
+    z-index: 1;
+    border: 0;
+    background-color: var(--ig-light-background);
+    padding: 0;
+    position:absolute; 
+    top: 25px; 
+    right: 50px;
+}
+
+#svg-darkMode {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+}
+
+#svg-darkMode path {
+    fill: var(--ig-light-text);
 }
 
 img {
     display: block;
+}
+
+header > .container > .profile {
+
+    display: grid;
+    grid-template-areas: 
+    "i u"
+    "i s"
+    "i b";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 10px; 
+}
+
+.profile-image {
+    grid-area: i;
+}
+
+.profile-user-settings {
+    grid-area: u;
+}
+
+.profile-stats {
+    grid-area: s;
+}
+
+.profile-bio {
+    grid-area: b;
+}
+
+.profile-stats ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.profile-stats li {
+    display: inline;
 }
