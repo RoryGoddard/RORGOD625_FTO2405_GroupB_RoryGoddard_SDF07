@@ -25,6 +25,7 @@ body {
 
 /******************** DARK MODE BUTTON ********************/
 /* I decided to add a dark mode button, the CSS is straightforward, but the JS took me a while to get right */
+
 #btn-darkMode {
     z-index: 1;
     border: 0;
