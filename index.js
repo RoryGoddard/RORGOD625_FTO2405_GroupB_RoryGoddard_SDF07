@@ -1,25 +1,9 @@
 let isLight = true
-/* This function achieves two goals, firstly, it checks what the current background colour is and then flips it, to its opposite value, along with the text colour 
-secondly, it switches the icon so that the user has a visual cue available that tells them what mode they are on now, and indicates to them that they can change it
-I discuss the glaring limitations of this function on my github readme.
 
-There are a number of limitations and problems with this fucntion, namely that its changing the values of the css variables instead of swapping variables themselves
-This could lead to issues in the future if I were to change the values in the styles document to be completely different colours,
-However I don't have the knowledge currently to implement this in a better way
-
-The other glaring limitation with it is because I am hosting it on a live server, and I hope you will too, I have had to construct this 
-convoluted template string in order to get the desired functionality with regards to the SVG files. This is a compatibility nightmare, I know, 
-but I decided to go through with it for now as I really wanted to add this functionality, and I will learn to do it properly in the future 
-
-***************Cancel above, I fixed it
-
-Challenges faced - above, plus in JS bools are not capitalised!!!*/
-
+/* I know this isn't the best way to achieve the desired result as I am changing the values of the css instead of swapping around the variables, 
+but admittedly, I couldn't get that to work, so I settled on this. I am confident there is a better way to do it */
 function toggleDarkMode() {
     const root = document.documentElement;
-    let protocol = location.protocol; 
-    let domain = location.hostname; 
-    let port = location.port; 
     const changeSVG = document.getElementById("svg-darkMode")
 
     if (isLight === true) {

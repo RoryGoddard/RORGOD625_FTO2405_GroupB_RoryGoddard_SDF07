@@ -23,6 +23,8 @@ body {
     padding-bottom: 3rem;
 }
 
+/******************** DARK MODE BUTTON ********************/
+/* I decided to add a dark mode button, the CSS is straightforward, but the JS took me a while to get right */
 #btn-darkMode {
     z-index: 1;
     border: 0;
@@ -47,42 +49,245 @@ img {
     display: block;
 }
 
-header > .container > .profile {
+/******************** PROFILE INFORMATION ********************/
+/* Managing different combinations of flex and grid in this section was so difficult, but I am happy with the result */
 
+.profile-edit-btn {
+    background-color: whitesmoke;
+    border: 1px solid grey;
+    border-radius: 2px;
+    margin-left: 2%;
+    margin-right: 1%; 
+    font-size: 1em;
+    text-wrap: nowrap;
+}
+
+.profile-settings-btn {
+    background-color: whitesmoke;
+    border: none;
+}
+
+/* Grid templates are definitely the grid concept I understand the best, they are so intuitive */
+.profile {
     display: grid;
     grid-template-areas: 
     "i u"
     "i s"
     "i b";
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto auto;
-    gap: 10px; 
+    gap: 1%; 
+    margin: 0 auto;
+    max-width: 50%; 
 }
 
 .profile-image {
     grid-area: i;
 }
 
+.profile-image > img {
+    border: 0.5em solid #319ca3; 
+    border-radius: 50%;
+    width: 100%;
+    object-fit: contain;
+}
+
 .profile-user-settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-area: u;
+    text-align: left;
+}
+
+.profile-user-settings > h1 {
+    font-size: 1.5em; 
+    font-weight: normal;
+    margin-left: 2%; 
 }
 
 .profile-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-area: s;
 }
 
-.profile-bio {
-    grid-area: b;
+.profile-stats > ul > li > span {
+    font-weight: bold;
 }
 
 .profile-stats ul {
+    display: inline; 
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    gap: 10px;
+    gap: 1%;
 }
 
 .profile-stats li {
     display: inline;
+    margin-right: .8rem; 
 }
+
+.profile-bio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: b;
+}
+
+.profile-bio > p > span {
+    font-weight: bold;
+}
+
+
+/******************** IMAGE GRID ********************/
+/* Settled on using template rows and columns, which I didn't understand anywhere near as well as template areas
+I felt template rows and columns gave the desired result in a more straight forward way for this application */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(4, auto);
+    gap: 10px;
+    margin: 25px auto 0px; 
+    max-width: 50%;
+}
+
+.gallery-item {
+    position: relative;
+    max-width: 100%; 
+    max-height: 100%; 
+    overflow: hidden; 
+}
+
+.gallery-item img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+/******************** IMAGES ********************/
+/* If I have learned anything from this project, it is now the relationship between position relative 
+parent elements and position absolute children */
+
+.gallery-item {
+    position: relative;
+}
+
+/* This took forever to get right, and I am sure there is a more efficient way of achieving the required result */
+.gallery-item-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    color: white;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-item:hover .gallery-item-info {
+    display: flex;
+}
+
+.gallery-item-info ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+}
+
+/* Raised font size to 1.5rem for better results across different displays, particularly smaller ones */
+.gallery-item-info li {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem; 
+}
+
+/* Margin between number and icon*/
+.gallery-item-info i {
+    margin-right: 5px; 
+}
+
+/* This will hide the unwanted text so just the icons and numbers display*/
+.gallery-item-likes span,
+.gallery-item-comments span {
+    display: none; 
+}
+
+
+/******************** LOADING ICON ********************/
+
+.loader {
+    max-height: 50px;
+    width: 50px;
+    display: block;
+    margin: 20px auto 0px auto;
+    animation: spin .5s linear 0s infinite forwards;
+}
+
+.img-loader {
+    width: 50px;
+}
+
+@keyframes spin {
+    0% { 
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg); 
+    }
+}
+
+
+/******************** MEDIA QUERIES ********************/
+/* I found I got the fucntionality I wanted with this combination of queries where I was happy with the design
+down to 320px displays, so I have chosen to stick with it */
+
+@media (orientation: portrait) {
+    .profile{max-width: 100%;}
+    .gallery{max-width: 100%;}
+    #btn-darkMode{
+        top: 8px;
+        right: 16px;}
+}
+
+@media only screen and (max-width:600px) {
+    #svg-darkMode {
+        width: 40px;
+        height: 40px;
+    }
+    
+}
+
+@media only screen and (max-width:500px) {
+    #svg-darkMode {
+        width: 30px;
+        height: 30px;
+    }
+    
+}  
+
+@media only screen and (max-width:420px) {
+    #svg-darkMode {
+        width: 20px;
+        height: 20px;
+    }
+    
+}  
+
+@media only screen and (max-width:360px) {
+    #svg-darkMode {
+        width: 15px;
+        height: 15px;
+    }
+    #btn-darkMode {
+        top: 40px;
+        right: 8px;
+    }
+}  
