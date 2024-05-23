@@ -39,8 +39,3 @@ The final thing I had issues with was the loading image at the bottom of the pag
 ## Final Thoughts
 
 100% this was by far and away the most difficult challenge I've done so far. Javascript comes easy but CSS is definitely something I need to revise. I am not entirely satisfied with how website looks on extra large displays, but I am in contrast very satisifed with how responsive it is with everything down to 320px width. This has really highlighted to me that I need to spend more time with CSS, and I have found what greatly confounds problems is when elements do not behave the way you expect them to within flex or grid containers. Having said that, I will definitely be revising the topics I struggled with in order to build a better mental model.
-
-
-
-
-## Final Thoughts
