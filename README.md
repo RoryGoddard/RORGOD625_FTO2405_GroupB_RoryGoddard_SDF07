@@ -23,7 +23,10 @@ but I decided to go through with it for now as I really wanted to add this funct
 
 I was having an issue getting the path to the svg's to work, as upon clicking them, I wanted to change to the other (sun/moon) in order to indicate to the user what mode they are on, and that they can change.
 I ended up finding a solution on stackoverflow where I could make the path a template string consisting of the protocol, the domain, and the port, following by the relative path to the svg's. This worked, but it was
-glaringly obvious to me that it was a disasterpiece of code. I then later tried to just use "./images..." and suddenly it worked. So I undid everything, and the problem no longer exists thankfully
+glaringly obvious to me that it was a disasterpiece of code. I then later tried to just use "./images..." and suddenly it worked. So I undid everything, and the problem no longer exists thankfully. 
+
+Oh, I also forgot my intial if statement was checking something difficult, I can't remember what, but I couldn't get it working right. Then I remembered, I can just define a bool and change its state in the different if/else statements. Easy!
+Except Javascript bools are not capitalised like they are in python! I forgot that and what followed was another 15 minutes of googling before the realisation hit.
 
 The other issues I faced were notably getting list items to behave with flexbox, to get them on one line (so easy when you know how to do it) and to get the spacing right in the grid cell. I did eventually manage with this too 
 but again, stackoverflow is a godsend.
