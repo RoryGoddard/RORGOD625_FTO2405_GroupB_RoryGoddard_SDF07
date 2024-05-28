@@ -25,6 +25,9 @@ body {
 
 /******************** DARK MODE BUTTON ********************/
 /* I decided to add a dark mode button, the CSS is straightforward, but the JS took me a while to get right */
+/* I went with position absolute for this and gave it a z index of 1, the intention is that I can check how it 
+behaves across multiple resolutions above all other elements and position it accordingly, and this was the 
+most responsive setup, good down to screens of 320px */
 
 #btn-darkMode {
     z-index: 1;
@@ -51,7 +54,9 @@ img {
 }
 
 /******************** PROFILE INFORMATION ********************/
-/* Managing different combinations of flex and grid in this section was so difficult, but I am happy with the result */
+/* I believe my biggest struggle this challenge was getting elements within the profile section to share the same 
+spacing as in the expample. It is still not right, but this is what I have settled on. As I said before as well, 
+getting flex items to behave within the individual grid cells came with a learning curve */
 
 .profile-edit-btn {
     background-color: whitesmoke;
@@ -68,7 +73,7 @@ img {
     border: none;
 }
 
-/* Grid templates are definitely the grid concept I understand the best, they are so intuitive */
+/* Grid templates are intuitive and easy to grasp, I feel I understand them best */
 .profile {
     display: grid;
     grid-template-areas: 
@@ -118,6 +123,7 @@ img {
     font-weight: bold;
 }
 
+/* display inline and list style none has the list items behaving as I wanted */
 .profile-stats ul {
     display: inline; 
     list-style: none;
